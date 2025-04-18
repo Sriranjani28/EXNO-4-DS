@@ -24,8 +24,86 @@ The feature selection techniques used are:
 3.Embedded Method
 
 # CODING AND OUTPUT:
- ![page_1](https://github.com/user-attachments/assets/29921346-d8ea-4e73-88b3-72653c4bfc12)
- ![page_2](https://github.com/user-attachments/assets/7b2d55c7-276d-4ebf-9019-72e573f5e93a)
- ![page_3](https://github.com/user-attachments/assets/f6a77ae0-5c94-4364-8c12-019e6a182c39)
+
+import pandas as pd
+
+from scipy import stats
+
+import numpy as np
+
+df=pd.read_csv("/content/bmi (1).csv")
+
+df.head()
+
+<img width="303" alt="SS 01" src="https://github.com/user-attachments/assets/f487c023-94da-48d7-8636-6e6a390b3d78" />
+
+df.dropna()
+
+<img width="311" alt="SS 02" src="https://github.com/user-attachments/assets/33e9cad4-59e3-4f79-b035-a48eb97fcbed" />
+
+max_vals=np.max(np.abs(df[['Height','Weight']]))
+
+max_vals
+
+<img width="367" alt="SS 03" src="https://github.com/user-attachments/assets/87633541-27bd-4152-87b6-c748f25b8bfd" />
+
+from sklearn.preprocessing import StandardScaler
+
+sc=StandardScaler()
+
+df1=df.copy()
+
+df1[['Height','Weight']]=sc.fit_transform(df1[['Height','Weight']])
+
+df1.head(10)
+
+<img width="328" alt="SS 04" src="https://github.com/user-attachments/assets/50e2364d-29e0-4d71-a7ab-d48397a94f18" />
+
+from sklearn.preprocessing import MinMaxScaler
+
+scaler=MinMaxScaler()
+
+df[['Height','Weight']]=scaler.fit_transform(df[['Height','Weight']])
+
+df.head(10)
+
+<img width="343" alt="SS 05" src="https://github.com/user-attachments/assets/f2803cd1-f82f-4255-9b0b-8ec94c058740" />
+
+from sklearn.preprocessing import Normalizer
+
+scaler=Normalizer()
+
+df2=df.copy()
+
+df2[['Height','Weight']]=scaler.fit_transform(df2[['Height','Weight']])
+
+df2
+
+<img width="368" alt="SS 06" src="https://github.com/user-attachments/assets/cdbdb691-bb44-482a-8c0c-3c011c1083ac" />
+
+df3=pd.read_csv("/content/bmi (1).csv")
+
+from sklearn.preprocessing import MaxAbsScaler
+
+sc=MaxAbsScaler()
+
+df3[['Height','Weight']]=scaler.fit_transform(df3[['Height','Weight']])
+
+df3
+
+<img width="367" alt="SS 07" src="https://github.com/user-attachments/assets/28ec86d5-22f6-4b68-9852-cde0634f0e37" />
+
+df4=pd.read_csv("/content/bmi (1).csv")
+
+from sklearn.preprocessing import RobustScaler
+
+scaler=RobustScaler()
+
+df4[['Height','Weight']]=scaler.fit_transform(df4[['Height','Weight']])
+
+df4.head()
+
+<img width="360" alt="SS 08" src="https://github.com/user-attachments/assets/d54bd8d1-a906-49b2-9c4b-99ff2104fdce" />
+
 # RESULT:
       Thus,Feature selection and Feature scaling has been used on the given dataset.
